@@ -78,6 +78,7 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
             <video
               controls
               autoPlay
+              loop
               // src="/videos/mehendi.mp4"
               // src="/videos/outputVideo.mp4"
               // src="/videos/outputVideoTrim.mp4"
@@ -112,12 +113,13 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
           </div>
         )}
         {ActivateModel && (
-          <div className="flex flex-row max-w-[65vw] h-[70vh bg-blac">
+          <div className="flex flex-row max-w-full">
             <video
               controls
               autoPlay
+              loop
               src={currentCameraData?.thermalImage}
-              className="flex-1 max-h-[50vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+              className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >
               <p>
                 Your browser does not support the video tag or the file format
@@ -127,8 +129,9 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
             <video
               controls
               autoPlay
+              loop
               src={currentCameraData?.thermalImageAnnotated}
-              className="flex-1 max-h-[50vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+              className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >
               <p>
                 Your browser does not support the video tag or the file format
