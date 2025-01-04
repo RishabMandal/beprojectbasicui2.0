@@ -179,7 +179,7 @@ const page = () => {
           </div>
         </div>
       </Modal>
-      <div className="flex h-[150vh]">
+      <div className="flex h-full">
         <div
           ref={leftDivRef}
           style={{ minWidth: "100px", width: "33.33%" }} // Prevents the div from being too small
@@ -264,7 +264,7 @@ const page = () => {
           ref={rightDivRef}
           className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
         >
-          {data.slice(0, 3).map((item, index) => (
+          {data.slice(0, 4).map((item, index) => (
             <div key={index} className="relative min-w-[20vw] flex-1 h-fit">
               <Image
                 src={
