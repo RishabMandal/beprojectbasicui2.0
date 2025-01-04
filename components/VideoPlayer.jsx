@@ -91,13 +91,29 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
               </p>
             </video>
           ))}
-        {!ActivateModel && !MultiScreenView && CameraView === "Night" && (
-          <Image
-            src={currentCameraData?.nightImage}
-            alt="Camera Feed Not Available"
-            className="w-full h-[75vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
-          />
-        )}
+        {!ActivateModel &&
+          !MultiScreenView &&
+          CameraView === "Night" &&
+          (currentCameraData?.video === false ? (
+            <Image
+              src={currentCameraData?.nightImage}
+              alt="Camera Feed Not Available"
+              className="w-full h-[75vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+            />
+          ) : (
+            <video
+              controls
+              autoPlay
+              loop
+              src={currentCameraData?.nightImage}
+              className="w-full h-[75vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+            >
+              <p>
+                Your browser does not support the video tag or the file format
+                of the video.
+              </p>
+            </video>
+          ))}
         {!ActivateModel && MultiScreenView && (
           <div className="flex flex-row max-w-[75vw]">
             <Image
@@ -112,7 +128,7 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
             />
           </div>
         )}
-        {ActivateModel && (
+        {ActivateModel && CameraView === "Thermal" && (
           <div className="flex flex-row max-w-full">
             <video
               controls
@@ -131,6 +147,34 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
               autoPlay
               loop
               src={currentCameraData?.thermalImageAnnotated}
+              className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+            >
+              <p>
+                Your browser does not support the video tag or the file format
+                of the video.
+              </p>
+            </video>
+          </div>
+        )}
+        {ActivateModel && CameraView === "Night" && (
+          <div className="flex flex-row max-w-full">
+            <video
+              controls
+              autoPlay
+              loop
+              src={currentCameraData?.nightImage}
+              className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
+            >
+              <p>
+                Your browser does not support the video tag or the file format
+                of the video.
+              </p>
+            </video>
+            <video
+              controls
+              autoPlay
+              loop
+              src={currentCameraData?.nightImageAnnotated}
               className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >
               <p>

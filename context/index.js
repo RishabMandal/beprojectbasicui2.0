@@ -68,6 +68,15 @@ export default function GlobalState({ children }) {
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera6.mp4",
       nightImage: "",
     },
+    {
+      id: 7,
+      video: true,
+      normalImage: "",
+      thermalImage: "/videos/thermalVideoCamera7.mp4",
+      thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera7.mp4",
+      nightImage: "/videos/nightVideoCamera7.mp4",
+      nightImageAnnotated: "/videos/nightVideoAnnotatedCamera7.mp4",
+    },
   ]);
   const [currentCameraData, setCurrentCameraData] = useState({});
   const [alertCameraData, setAlertCameraData] = useState();
