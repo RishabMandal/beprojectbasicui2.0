@@ -12,6 +12,8 @@ import normalCamera1 from "../assets/normal/Camera 2.jpg";
 import normalCamera2 from "../assets/normal/Camera 1.jpg";
 import normalCamera3 from "../assets/normal/Camera 3.jpg";
 import mapCamera6 from "../assets/maps/mapCamera6.jpg";
+import mapCamera7 from "../assets/maps/mapCamera7.jpg";
+import mapCamera8 from "../assets/maps/mapCamera8.jpg";
 
 export const GlobalContext = createContext(null);
 
@@ -79,6 +81,9 @@ export default function GlobalState({ children }) {
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera7.mp4",
       nightImage: "/videos/nightVideoCamera7.mp4",
       nightImageAnnotated: "/videos/nightVideoAnnotatedCamera7.mp4",
+      mapSatelliteImage: mapCamera7,
+      latitude: 24.167554,
+      longitude: 70.010175,
     },
     {
       id: 8,
@@ -88,9 +93,9 @@ export default function GlobalState({ children }) {
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera8.mp4",
       nightImage: "/videos/nightVideoCamera8.mp4",
       nightImageAnnotated: "/videos/nightVideoAnnotatedCamera8.mp4",
-      // mapSatelliteImage: ,
-      latitude: 24.272618,
-      longitude: 69.462367,
+      mapSatelliteImage: mapCamera8,
+      latitude: 23.970267,
+      longitude: 68.754941,
     },
   ]);
   const [currentCameraData, setCurrentCameraData] = useState({});
