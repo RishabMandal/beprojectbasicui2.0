@@ -4,86 +4,13 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { GlobalContext } from "@/context";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { Modal } from "@mui/material";
-// import { getBase64, ImagetoBase64 } from "react-image-base64";
-// import base64ImageLoader from "base64-image-loader";
-// import thermalCamera1 from "../../../assets/thermal/Camera 1.jpg";
 
 const page = () => {
   const { data, setCurrentCameraData, alertCameraData, setAlertCameraData } =
     useContext(GlobalContext);
   const router = useRouter();
   const [CameraView, setCameraView] = useState("Thermal");
-
-  //   const [deployeddata, setDeployeddata] = useState();
-
-  //
-  //   const [base64, setBase64] = useState("");
-  const [file, setFile] = useState(null);
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        const base64Image = reader.result; // This is the base64 string
-
-        // Send the base64 string via Axios
-        axios({
-          method: "POST",
-          url: "https://detect.roboflow.com/drone-4uxky/1",
-          params: {
-            api_key: "NJIolqxzPmiYii3VJAJt",
-          },
-          data: {
-            image: base64Image,
-          },
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        })
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((error) => {
-            console.error("Error:", error.message);
-          });
-      };
-
-      reader.onerror = (error) => {
-        console.error("Error reading file:", error);
-      };
-
-      reader.readAsDataURL(selectedFile); // Convert to base64
-    }
-  };
-  //   useEffect(() => {
-  //     getBase64(thermalCamera1)
-  //       .then((base64Image) => {
-  //         // Send the base64 string via Axios
-  //         return axios({
-  //           method: "POST",
-  //           url: "https://detect.roboflow.com/drone-4uxky/1",
-  //           params: {
-  //             api_key: "NJIolqxzPmiYii3VJAJt",
-  //           },
-  //           data: {
-  //             image: base64Image,
-  //           },
-  //           headers: {
-  //             "Content-Type": "application/x-www-form-urlencoded",
-  //           },
-  //         });
-  //       })
-  //       .then((response) => {
-  //         console.log(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error:", error.message);
-  //       });
-  //   }, []);
 
   // Modal
   const style = {
@@ -148,7 +75,7 @@ const page = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="size-16 stroke-red-500"
             >
@@ -186,7 +113,6 @@ const page = () => {
           className="bg-[#25314f]"
         >
           <div className="flex-1 bg-[#25314f] p-2 overflow-x-auto resize-x">
-            {/* <input type="file" accept="image/*" onChange={handleFileChange} /> */}
             <select
               className="flex-1 p-2 bg-[#2b4075] rounded-lg w-full focus:outline-none cursor-pointer"
               onChange={(e) => setCameraView(e.target.value)}
@@ -197,6 +123,12 @@ const page = () => {
             </select>
             <div className="px-2 bg-[#2b4075] rounded-lg w-full min-h-[100vh] mt-2">
               {data?.map((cam, index) => {
+                const temperature = Math.floor(Math.random() * (45 - 25 + 1)) + 25;
+
+                // List of possible weather conditions
+                const weatherConditions = ["Sunny", "Cloudy", "Rainy", "Fog", "Windy"];
+                // Select a random weather condition
+                const weather = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
                 return (
                   <div
                     key={index}
@@ -245,14 +177,19 @@ const page = () => {
                           />
                         ))}
                       <div className="flex-1">
-                        <div className="font-bold text-xl">
+                        <div className="font-bold text-2xl">
                           Zone {index + 1}
                         </div>
                         <div className="font-semibold">Block A</div>
                         <div className="text-gray-400">
-                          Thermal Camera <br />
-                          Time <br />
-                          Location
+                          Temperature: {temperature}°C
+                        </div>
+                        <div className="text-gray-400">Weather: {weather}</div>
+                        <div className="text-gray-400">
+                          Longitude: {cam?.longitude}
+                        </div>
+                        <div className="text-gray-400">
+                          Latitude: {cam?.latitude}
                         </div>
                       </div>
                     </div>

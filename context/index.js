@@ -34,6 +34,8 @@ export default function GlobalState({ children }) {
       normalImage: normalCamera1,
       thermalImage: thermalCamera1,
       nightImage: nightCamera1,
+      latitude: 27.187618,
+      longitude: 69.591967,
     },
     {
       id: 2,
@@ -41,6 +43,8 @@ export default function GlobalState({ children }) {
       normalImage: normalCamera2,
       thermalImage: thermalCamera2,
       nightImage: nightCamera2,
+      latitude: 23.960556,
+      longitude: 68.298732,
     },
     {
       id: 3,
@@ -48,6 +52,8 @@ export default function GlobalState({ children }) {
       normalImage: normalCamera3,
       thermalImage: thermalCamera3,
       nightImage: nightCamera3,
+      latitude: 29.537718,
+      longitude: 70.462367,
     },
     {
       id: 4,
@@ -55,6 +61,8 @@ export default function GlobalState({ children }) {
       normalImage: "",
       thermalImage: thermalCamera4,
       nightImage: "",
+      latitude: 28.000218,
+      longitude: 70.409267,
     },
     {
       id: 5,
