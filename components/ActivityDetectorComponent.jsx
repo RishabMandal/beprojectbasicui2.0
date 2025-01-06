@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const ActivityDetectorComponent = () => {
+const ActivityDetectorComponent = ({ mapView, setMapView }) => {
   const router = useRouter();
   return (
     <div className="bg-[#25314f] h-full pt-5 flex flex-col justify-between">
@@ -162,22 +162,40 @@ const ActivityDetectorComponent = () => {
           </svg>
           <div className="text-center text-sm pt-1">Generate Report</div>
         </div>
-        <div className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6 w-full"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18 18 6M6 6l12 12"
-            />
-          </svg>
-          <div className="text-center text-sm pt-1">Dismiss violation</div>
+        <div
+          className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200"
+          onClick={() => setMapView(!mapView)}
+        >
+          {!mapView ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6 w-full"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6 w-full"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.636 4.575a.75.75 0 0 1 0 1.061 9 9 0 0 0 0 12.728.75.75 0 1 1-1.06 1.06c-4.101-4.1-4.101-10.748 0-14.849a.75.75 0 0 1 1.06 0Zm12.728 0a.75.75 0 0 1 1.06 0c4.101 4.1 4.101 10.75 0 14.85a.75.75 0 1 1-1.06-1.061 9 9 0 0 0 0-12.728.75.75 0 0 1 0-1.06ZM7.757 6.697a.75.75 0 0 1 0 1.06 6 6 0 0 0 0 8.486.75.75 0 0 1-1.06 1.06 7.5 7.5 0 0 1 0-10.606.75.75 0 0 1 1.06 0Zm8.486 0a.75.75 0 0 1 1.06 0 7.5 7.5 0 0 1 0 10.606.75.75 0 0 1-1.06-1.06 6 6 0 0 0 0-8.486.75.75 0 0 1 0-1.06ZM9.879 8.818a.75.75 0 0 1 0 1.06 3 3 0 0 0 0 4.243.75.75 0 1 1-1.061 1.061 4.5 4.5 0 0 1 0-6.364.75.75 0 0 1 1.06 0Zm4.242 0a.75.75 0 0 1 1.061 0 4.5 4.5 0 0 1 0 6.364.75.75 0 0 1-1.06-1.06 3 3 0 0 0 0-4.243.75.75 0 0 1 0-1.061ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          )}
+          <div className="text-center text-sm pt-1">
+            {mapView ? "Radar Mode" : "Map Mode"}
+          </div>
         </div>
       </div>
     </div>

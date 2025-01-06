@@ -10,7 +10,7 @@ const Footer = () => {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         // stroke="currentColor"
-        className="size-6 mx-1 stroke-red-600"
+        className="size-6 mx-1 stroke-red-600 hover:scale-125 duration-200"
       >
         <path
           stroke-linecap="round"
@@ -20,7 +20,7 @@ const Footer = () => {
       </svg>
       <div>
         by{" "}
-        <a href="http://www.linkedin.com/in/rishabmandal" className="cursor-pointer">
+        <a href="http://www.linkedin.com/in/rishabmandal" className="cursor-pointer hover:underline duration-200">
           Rishab Mandal
         </a>{" "}
         and{" "}

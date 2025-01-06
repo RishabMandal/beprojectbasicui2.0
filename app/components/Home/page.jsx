@@ -216,7 +216,7 @@ const page = () => {
           ref={rightDivRef}
           className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
         >
-          {data.slice(4, 8).map((item, index) => (
+          {data.slice(5, 9).map((item, index) => (
             <div key={index} className="relative min-w-[20vw] flex-1 h-fit">
               {item.video === false ? (
                 <Image

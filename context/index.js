@@ -112,6 +112,18 @@ export default function GlobalState({ children }) {
       latitude: 23.970267,
       longitude: 68.754941,
     },
+    {
+      id: 9,
+      video: true,
+      normalImage: "",
+      thermalImage: "/videos/thermalVideoCamera9.mp4",
+      thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera9.mp4",
+      nightImage: "/videos/nightVideoCamera9.mp4",
+      nightImageAnnotated: "/videos/nightVideoAnnotatedCamera9.mp4",
+      mapSatelliteImage: mapCamera8,
+      latitude: 23.272618,
+      longitude: 70.462367,
+    },
   ]);
   const [currentCameraData, setCurrentCameraData] = useState({});
   const [alertCameraData, setAlertCameraData] = useState();
