@@ -15,35 +15,54 @@ const page = () => {
   }, [alertCameraData]);
 
   return (
-    <div className="bg-[#1d2440]">
+    <div className="bg-[#1d2440] min-h-[95vh]">
       <div
         className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
       >
-        {data.slice(0, 3).map((item, index) => (
+        {data.slice(5, 8).map((item, index) => (
           <div key={index} className="relative min-w-[25vw] flex-1 h-fit">
-            <Image
-              src={
-                CameraView === "Thermal"
-                  ? item.thermalImage
-                  : CameraView === "Normal"
-                  ? item.normalImage
-                  : CameraView === "Night"
-                  ? item.nightImage
-                  : null
-              }
-              alt="Camera Img"
-              onClick={() => {
-                setCurrentCameraData(item);
-                router.push("/components/DetailedVideoSection");
-              }}
-              className={`relative w-full h-auto border-2 ${
-                alertCameraData?.id === item?.id
-                  ? "border-4 border-red-600"
-                  : "border-[#334c8e]"
-              } bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105`}
-            />
-            <div className="absolute z-30 top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
-              Camera ID: {item.id}
+            {item.video === false ? (
+              <Image
+                src={
+                  CameraView === "Thermal"
+                    ? item.thermalImage
+                    : CameraView === "Normal"
+                    ? item.normalImage
+                    : CameraView === "Night"
+                    ? item.nightImage
+                    : null
+                }
+                alt="Camera Img"
+                onClick={() => {
+                  setCurrentCameraData(item);
+                  router.push("/components/DetailedVideoSection");
+                }}
+                className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+              />
+            ) : (
+              <video
+                // controls
+                loop
+                autoPlay
+                src={
+                  CameraView === "Thermal"
+                    ? item.thermalImage
+                    : CameraView === "Normal"
+                    ? item.normalImage
+                    : CameraView === "Night"
+                    ? item.nightImage
+                    : null
+                }
+                alt="Camera Img"
+                onClick={() => {
+                  setCurrentCameraData(item);
+                  router.push("/components/DetailedVideoSection");
+                }}
+                className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+              />
+            )}
+            <div className="absolute z-30 font-semibold top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
+              Zone {item.id}
             </div>
           </div>
         ))}

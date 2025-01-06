@@ -229,13 +229,21 @@ const page = () => {
                           className="w-[40%] rounded-lg"
                         />
                       )}
-                      {CameraView === "Night" && (
-                        <Image
-                          src={cam.nightImage}
-                          alt="Cam"
-                          className="w-[40%] rounded-lg"
-                        />
-                      )}
+                      {CameraView === "Night" &&
+                        (cam.video === false ? (
+                          <Image
+                            src={cam.thermalImage}
+                            alt="Cam"
+                            className="w-[40%] rounded-lg"
+                          />
+                        ) : (
+                          <video
+                            // controls
+                            src={cam.thermalImage}
+                            alt="Cam"
+                            className="w-[40%] rounded-lg"
+                          />
+                        ))}
                       <div className="flex-1">
                         <div className="font-bold text-xl">
                           Zone {index + 1}
@@ -257,7 +265,7 @@ const page = () => {
         </div>
         <div
           ref={dividerRef}
-          className="bg-[#334c8e] cursor-col-resize w-1 h-full"
+          className="bg-[#334c8e] cursor-col-resize w-1 h-full min-h-[250vh]"
           onMouseDown={handleMouseDown}
         ></div>
         <div
@@ -306,7 +314,7 @@ const page = () => {
                   className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
                 />
               )}
-              <div className="absolute z-30 top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
+              <div className="absolute z-30 font-semibold top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
                 Zone {item.id}
               </div>
             </div>
@@ -321,8 +329,6 @@ const page = () => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-row">
-      </div> */}
     </div>
   );
 };
