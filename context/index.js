@@ -11,6 +11,7 @@ import nightCamera3 from "../assets/night/Camera 3.jpg";
 import normalCamera1 from "../assets/normal/Camera 2.jpg";
 import normalCamera2 from "../assets/normal/Camera 1.jpg";
 import normalCamera3 from "../assets/normal/Camera 3.jpg";
+import mapCamera5 from "../assets/maps/mapCamera5.jpg";
 import mapCamera6 from "../assets/maps/mapCamera6.jpg";
 import mapCamera7 from "../assets/maps/mapCamera7.jpg";
 import mapCamera8 from "../assets/maps/mapCamera8.jpg";
@@ -59,8 +60,13 @@ export default function GlobalState({ children }) {
       id: 5,
       video: true,
       normalImage: "",
-      thermalImage: "/videos/outputVideoTrim.mp4",
-      nightImage: "",
+      thermalImage: "/videos/thermalVideoCamera5.mp4",
+      thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera5.mp4",
+      nightImage: "/videos/nightVideoCamera5.mp4",
+      nightImageAnnotated: "/videos/nightVideoAnnotatedCamera5.mp4",
+      mapSatelliteImage: mapCamera5,
+      latitude: 23.272618,
+      longitude: 70.462367,
     },
     {
       id: 6,
@@ -68,7 +74,8 @@ export default function GlobalState({ children }) {
       normalImage: "",
       thermalImage: "/videos/thermalVideoCamera6.mp4",
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera6.mp4",
-      nightImage: "",
+      nightImage: "/videos/nightVideoCamera6.mp4",
+      nightImageAnnotated: "/videos/nightVideoAnnotatedCamera6.mp4",
       mapSatelliteImage: mapCamera6,
       latitude: 24.272618,
       longitude: 69.462367,
