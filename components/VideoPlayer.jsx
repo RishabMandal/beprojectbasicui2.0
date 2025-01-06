@@ -105,6 +105,7 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
               controls
               autoPlay
               loop
+              playbackRate="0.75"
               src={currentCameraData?.nightImage}
               className="w-full h-[75vh] border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >
@@ -134,6 +135,7 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
               controls
               autoPlay
               loop
+              playbackRate="0.75"
               src={currentCameraData?.thermalImage}
               className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >
@@ -146,6 +148,7 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
               controls
               autoPlay
               loop
+              playbackRate="0.75"
               src={currentCameraData?.thermalImageAnnotated}
               className="flex-1 w-1/2 h-auto border-2 border-[#334c8e] bg-black rounded-lg object-contain my-5"
             >

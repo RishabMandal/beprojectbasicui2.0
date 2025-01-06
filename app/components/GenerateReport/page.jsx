@@ -15,8 +15,12 @@ const page = () => {
     "A Drone was detected with a temperature of 37°C at 02:00 AM. The weather was Clear, and recent activity shows: No activity detected in the last 24 hours. Historical patterns indicate Previous intrusions detected between 01:00 AM and 03:00 AM near the location Sector A, 500 meters from Border Post 12. The current risk level is High. It is recommended to Increase surveillance,Alert patrols,Deploy deterrents,Log and Monitor."
   );
   const [location, setLocation] = useState({
-    lat: "18.93523182276795",
-    lon: "72.77755582685234",
+    lat: currentCameraData?.latitude
+      ? currentCameraData.latitude
+      : "18.93523182276795",
+    lon: currentCameraData?.longitude
+      ? currentCameraData.longitude
+      : "72.77755582685234",
   });
   //   const [loading, setLoading] = useState(true);
   //   const downloadPDF = () => {
@@ -116,16 +120,33 @@ const page = () => {
           <div>{report}</div>
           <h2 className="text-xl font-semibold my-4">Camera Snapshots</h2>
           <div className="flex flex-row gap-3">
-            <Image
-              src={currentCameraData?.thermalImage}
-              alt="Thermal Camera Data"
-              className="object-contain flex-1 max-w-[150px] h-auto" // Set max width and auto height
-            />
-            <Image
-              src={currentCameraData?.nightImage}
-              alt="Night Camera Data"
-              className="object-contain flex-1 max-w-[150px] h-auto" // Set max width and auto height
-            />
+            {currentCameraData?.video === false ? (
+              <>
+                <Image
+                  src={currentCameraData?.thermalImage}
+                  alt="Thermal Camera Data"
+                  className="object-contain flex-1 max-w-[150px] h-auto" // Set max width and auto height
+                />
+                <Image
+                  src={currentCameraData?.nightImage}
+                  alt="Night Camera Data"
+                  className="object-contain flex-1 max-w-[150px] h-auto" // Set max width and auto height
+                />
+              </>
+            ) : (
+              <>
+                <video
+                  src={currentCameraData?.thermalImageAnnotated}
+                  alt="Thermal Camera Data"
+                  className="object-contain flex-1 max-w-[150px] h-auto"
+                />
+                <video
+                  src={currentCameraData?.nightImageAnnotated}
+                  alt="Night Camera Data"
+                  className="object-contain flex-1 max-w-[150px] h-auto"
+                />
+              </>
+            )}
           </div>
         </div>
         <button

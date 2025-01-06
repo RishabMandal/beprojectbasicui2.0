@@ -264,27 +264,50 @@ const page = () => {
           ref={rightDivRef}
           className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
         >
-          {data.slice(0, 4).map((item, index) => (
+          {data.slice(4, 8).map((item, index) => (
             <div key={index} className="relative min-w-[20vw] flex-1 h-fit">
-              <Image
-                src={
-                  CameraView === "Thermal"
-                    ? item.thermalImage
-                    : CameraView === "Normal"
-                    ? item.normalImage
-                    : CameraView === "Night"
-                    ? item.nightImage
-                    : null
-                }
-                alt="Camera Img"
-                onClick={() => {
-                  setCurrentCameraData(item);
-                  router.push("/components/DetailedVideoSection");
-                }}
-                className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
-              />
+              {item.video === false ? (
+                <Image
+                  src={
+                    CameraView === "Thermal"
+                      ? item.thermalImage
+                      : CameraView === "Normal"
+                      ? item.normalImage
+                      : CameraView === "Night"
+                      ? item.nightImage
+                      : null
+                  }
+                  alt="Camera Img"
+                  onClick={() => {
+                    setCurrentCameraData(item);
+                    router.push("/components/DetailedVideoSection");
+                  }}
+                  className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+                />
+              ) : (
+                <video
+                  // controls
+                  loop
+                  autoPlay
+                  src={
+                    CameraView === "Thermal"
+                      ? item.thermalImage
+                      : CameraView === "Normal"
+                      ? item.normalImage
+                      : CameraView === "Night"
+                      ? item.nightImage
+                      : null
+                  }
+                  alt="Camera Img"
+                  onClick={() => {
+                    setCurrentCameraData(item);
+                    router.push("/components/DetailedVideoSection");
+                  }}
+                  className="relative w-full h-auto border-2 border-[#334c8e] bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+                />
+              )}
               <div className="absolute z-30 top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
-                Camera ID: {item.id}
+                Zone {item.id}
               </div>
             </div>
           ))}
