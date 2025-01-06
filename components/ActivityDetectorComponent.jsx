@@ -8,7 +8,10 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
   return (
     <div className="bg-[#25314f] h-full pt-5 flex flex-col justify-between">
       <div>
-        <div className="mx-5 mb-5 rounded-xl bg-[#2c4075]">
+        <div
+          className="mx-5 mb-5 rounded-xl bg-[#2c4075]"
+          onClick={() => router.push("/components/ActivityDashboard")}
+        >
           <div className="flex flex-row gap-1 items-center p-2">
             <div className="rounded-full bg-[#3f5ba9] p-2">
               <svg
@@ -29,7 +32,31 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
             <div>
               <div className="text-sm">Suspicious Activity Detected</div>
               <div className="text-gray-500 text-xs">
-                10:28:28 - 10:30:21 . 2m
+                10:00:28 - 10:02:21 . 2m
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-row gap-1 border-t border-gray-500 items-center p-2">
+            <div className="rounded-full bg-[#3f5ba9] p-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.7"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div className="text-sm">Suspicious Activity Detected</div>
+              <div className="text-gray-500 text-xs">
+                10:15:28 - 10:17:21 . 2m
               </div>
             </div>
           </div>
@@ -77,31 +104,7 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
             <div>
               <div className="text-sm">Suspicious Activity Detected</div>
               <div className="text-gray-500 text-xs">
-                10:28:28 - 10:30:21 . 2m
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-row gap-1 border-t border-gray-500 items-center p-2">
-            <div className="rounded-full bg-[#3f5ba9] p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.7"
-                stroke="currentColor"
-                class="size-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
-                />
-              </svg>
-            </div>
-            <div>
-              <div className="text-sm">Suspicious Activity Detected</div>
-              <div className="text-gray-500 text-xs">
-                10:28:28 - 10:30:21 . 2m
+                10:45:28 - 10:47:21 . 2m
               </div>
             </div>
           </div>
