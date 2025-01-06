@@ -123,12 +123,19 @@ const page = () => {
             </select>
             <div className="px-2 bg-[#2b4075] rounded-lg w-full min-h-[100vh] mt-2">
               {data?.map((cam, index) => {
-                const temperature = Math.floor(Math.random() * (45 - 25 + 1)) + 25;
-
-                // List of possible weather conditions
-                const weatherConditions = ["Sunny", "Cloudy", "Rainy", "Fog", "Windy"];
-                // Select a random weather condition
-                const weather = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+                const temperature =
+                  Math.floor(Math.random() * (45 - 25 + 1)) + 25;
+                const weatherConditions = [
+                  "Sunny",
+                  "Cloudy",
+                  "Rainy",
+                  "Fog",
+                  "Windy",
+                ];
+                const weather =
+                  weatherConditions[
+                    Math.floor(Math.random() * weatherConditions.length)
+                  ];
                 return (
                   <div
                     key={index}
@@ -177,7 +184,7 @@ const page = () => {
                           />
                         ))}
                       <div className="flex-1">
-                        <div className="font-bold text-2xl">
+                        <div className="font-bold text-xl">
                           Zone {index + 1}
                         </div>
                         <div className="font-semibold">Block A</div>

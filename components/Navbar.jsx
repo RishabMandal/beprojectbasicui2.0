@@ -12,7 +12,7 @@ const Navbar = () => {
   return isAuthUser === true ? (
     <div className="bg-[#2f3b61] p-1">
       <div className="flex flex-row justify-between">
-        <div className="font-bold pl-[0.35rem] text-lg flex flex-row w-fit items-center justify-start">
+        <div className="font-bold pl-[0.35rem] text-xl flex flex-row w-fit items-center justify-start">
           <Image src={flag} alt="flag" className="h-[1rem] object-contain w-fit pr-2" />
           {/* {currentCameraData && currentCameraData.id != undefined
             ? `Camera ${currentCameraData.id}`
