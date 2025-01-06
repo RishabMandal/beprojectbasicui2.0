@@ -5,13 +5,13 @@ import thermalCamera1 from "../assets/thermal/Camera 1.jpg";
 import thermalCamera2 from "../assets/thermal/Camera 2.jpg";
 import thermalCamera3 from "../assets/thermal/Camera 3.jpg";
 import thermalCamera4 from "../assets/thermal/Camera 4.jpg";
-// import thermalVideo1 from "../assets/videos/outputVideo.mp4";
 import nightCamera1 from "../assets/night/Camera 1.jpg";
 import nightCamera2 from "../assets/night/Camera 2.jpg";
 import nightCamera3 from "../assets/night/Camera 3.jpg";
 import normalCamera1 from "../assets/normal/Camera 2.jpg";
 import normalCamera2 from "../assets/normal/Camera 1.jpg";
 import normalCamera3 from "../assets/normal/Camera 3.jpg";
+import mapCamera6 from "../assets/maps/mapCamera6.jpg";
 
 export const GlobalContext = createContext(null);
 
@@ -67,6 +67,9 @@ export default function GlobalState({ children }) {
       thermalImage: "/videos/thermalVideoCamera6.mp4",
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera6.mp4",
       nightImage: "",
+      mapSatelliteImage: mapCamera6,
+      latitude: 24.272618,
+      longitude: 69.462367,
     },
     {
       id: 7,
@@ -76,6 +79,18 @@ export default function GlobalState({ children }) {
       thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera7.mp4",
       nightImage: "/videos/nightVideoCamera7.mp4",
       nightImageAnnotated: "/videos/nightVideoAnnotatedCamera7.mp4",
+    },
+    {
+      id: 8,
+      video: true,
+      normalImage: "",
+      thermalImage: "/videos/thermalVideoCamera8.mp4",
+      thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera8.mp4",
+      nightImage: "/videos/nightVideoCamera8.mp4",
+      nightImageAnnotated: "/videos/nightVideoAnnotatedCamera8.mp4",
+      // mapSatelliteImage: ,
+      latitude: 24.272618,
+      longitude: 69.462367,
     },
   ]);
   const [currentCameraData, setCurrentCameraData] = useState({});
