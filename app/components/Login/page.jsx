@@ -3,10 +3,11 @@
 import React, { useContext, useRef } from "react";
 import { GlobalContext } from "@/context";
 import { useRouter } from "next/navigation";
+import army from "../../../assets/maps/army.jpg";
+import Image from "next/image";
 
 const page = () => {
   const { users, setUsers, setIsAuthUser } = useContext(GlobalContext);
-  //   console.log(users);
   const currentUsername = useRef();
   const currentPassword = useRef();
 
@@ -14,15 +15,10 @@ const page = () => {
 
   return (
     <div className="bg-[#1d2440] min-h-screen text-black p-5">
-      <div className="bg-gradient-to-r from-green-400 to-indigo-500 hover:p-3 duration-300 w-fit mx-auto rounded-xl hover:shadow-lg transition-transform transform hover:scale-95">
+      <div className="bg-gradient-to-r from-green-400 to-indigo-500 hover:p-2 duration-300 w-fit mx-auto rounded-xl hover:shadow-xl transition-transform transform hover:scale-95">
         <div className="bg-black p-6 rounded-lg">
-          <form className="flex flex-col gap-4 px-8 py-4 bg-black rounded-xl transition-all">
-            <p
-              id="heading"
-              className="text-center text-white text-2xl my-8 font-semibold"
-            >
-              Login
-            </p>
+          <div className="flex flex-col gap-4 px-8 py-4 bg-black rounded-xl transition-all">
+            <Image src={army} alt="Army" className="rounded-xl" />
             <div className="flex items-center justify-center gap-2 border-2 border-gray-800 rounded-xl p-4 bg-black text-white shadow-inner">
               <svg
                 viewBox="0 0 16 16"
@@ -38,7 +34,7 @@ const page = () => {
                 type="text"
                 ref={currentUsername}
                 className="bg-transparent border-none outline-none w-full text-gray-300"
-                placeholder="Username"
+                placeholder="Army Credentials"
                 autoComplete="off"
               />
             </div>
@@ -60,7 +56,7 @@ const page = () => {
                 placeholder="Password"
               />
             </div>
-            <div className="flex justify-center gap-4 mt-10">
+            <div className="flex justify-center gap-4 mt-10 font-semibold">
               <button
                 onClick={() => {
                   if (
@@ -68,38 +64,44 @@ const page = () => {
                       (user) => user.name === currentUsername.current.value
                     )
                   ) {
-                    alert("Login Success");
+                    // alert("Login Success");
                     setIsAuthUser(true);
-                    // redirect("/components/Home");
                     router.push("/components/Home");
                   }
                 }}
-                className="px-4 py-2 rounded-md bg-gray-800 text-white transition-all hover:bg-gray-900"
+                className="px-4 py-2 rounded-md bg-gray-800 text-white transition-all hover:bg-green-600"
               >
                 Login
               </button>
               <button
                 onClick={() => {
-                  if (
-                    users.find(
-                      (user) => user.name === currentUsername.current.value
-                    )
-                  ) {
-                    alert("Login Success");
-                    setIsAuthUser(true);
-                    // redirect("/components/Home");
-                    router.push("/components/Home");
-                  }
+                  // if (
+                  //   users.find(
+                  //     (user) => user.name === currentUsername.current.value
+                  //   )
+                  // ) {
+                  //   // alert("Login Success");
+                  //   // setIsAuthUser(true);
+                  //   router.push("/components/Home");
+                  // }
+                  alert(
+                    "Request has been sent to Major General. Wait till further notice."
+                  );
                 }}
-                className="px-6 py-2 rounded-md bg-gray-800 text-white transition-all hover:bg-gray-900"
+                className="px-6 py-2 rounded-md bg-gray-800 text-white transition-all hover:bg-blue-600"
               >
                 Sign Up
               </button>
             </div>
-            <button className="px-4 py-2 rounded-md bg-gray-800 text-white mt-6 transition-all hover:bg-red-600">
+            <button
+              onClick={() =>
+                alert("Username: Rishab, Password:1234, Enjoy!! LOL")
+              }
+              className="px-4 py-2 rounded-md bg-gray-800 text-white mt-6 transition-all hover:bg-red-600"
+            >
               Forgot Password
             </button>
-          </form>
+          </div>
         </div>
       </div>
       {/* <div className="flex flex-row">

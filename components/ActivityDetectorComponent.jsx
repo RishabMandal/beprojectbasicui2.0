@@ -9,7 +9,7 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
     <div className="bg-[#25314f] h-full pt-5 flex flex-col justify-between">
       <div>
         <div
-          className="mx-5 mb-5 rounded-xl bg-[#2c4075]"
+          className="mx-5 mb-5 rounded-xl bg-[#2c4075] cursor-pointer"
           onClick={() => router.push("/components/ActivityDashboard")}
         >
           <div className="flex flex-row gap-1 items-center p-2">
