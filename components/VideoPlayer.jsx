@@ -18,9 +18,9 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
     setCurrentCameraData(selectedCamera);
   };
 
-  // useEffect(() => {
-  //   console.log(currentCameraData);
-  // }, [currentCameraData]);
+  useEffect(() => {
+    console.log(currentCameraData);
+  }, [currentCameraData]);
 
   return (
     <div className="p-5 bg-[#1d2440] min-h-full">

@@ -125,7 +125,18 @@ export default function GlobalState({ children }) {
       longitude: 70.462367,
     },
   ]);
-  const [currentCameraData, setCurrentCameraData] = useState({});
+  const [currentCameraData, setCurrentCameraData] = useState({
+    id: 8,
+    video: true,
+    normalImage: "",
+    thermalImage: "/videos/thermalVideoCamera8.mp4",
+    thermalImageAnnotated: "/videos/thermalVideoAnnotatedCamera8.mp4",
+    nightImage: "/videos/nightVideoCamera8.mp4",
+    nightImageAnnotated: "/videos/nightVideoAnnotatedCamera8.mp4",
+    mapSatelliteImage: mapCamera8,
+    latitude: 23.970267,
+    longitude: 68.754941,
+  });
   const [alertCameraData, setAlertCameraData] = useState();
   return (
     <GlobalContext.Provider

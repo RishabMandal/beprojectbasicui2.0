@@ -70,42 +70,6 @@ const page = () => {
         className="outline-none"
         sx={{ outline: "none" }}
       >
-        {/* <div className="w-[50vw] h-[50vh] top-5 mx-auto bg-opacity-10 flex flex-col items-center justify-center">
-          <div className="">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-16 stroke-red-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
-              />
-            </svg>
-          </div>
-          <div className="font-semibold text-2xl">
-            Suspicious Activity Detected!
-          </div>
-          <div>Suspicious activity was detected in Zone 1, Block A</div>
-          <div className="flex flex-row mt-5 gap-5">
-            <button
-              onClick={() => {
-                setCurrentCameraData(data[0]);
-                router.push("/components/DetailedVideoSection");
-              }}
-              className={`cursor-pointer bg-[#2b4075] border border-[#48599a] p-1 px-3 hover:scale-105 duration-200 rounded-lg`}
-            >
-              View Camera
-            </button>
-            <button className="bg-red-500 px-3 py-2 rounded-lg hover:bg-red-600 duration-200">
-              Alert Border Patrol
-            </button>
-          </div>
-        </div> */}
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 text-white">
           <div className="bg-[#2b4075] border-2 rounded-xl border-blue-600 flex flex-row gap-5 justify-between w-[60vw] mx-auto p-5">
             <div>
@@ -135,7 +99,7 @@ const page = () => {
               <button
                 type="submit"
                 onClick={() => {
-                  setCurrentCameraData(data[0]);
+                  setCurrentCameraData(alertCameraData);
                   router.push("/components/DetailedVideoSection");
                 }}
                 className="flex mb-2 mt-4 h-14 justify-center text-emerald-600 gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-2xl group"
