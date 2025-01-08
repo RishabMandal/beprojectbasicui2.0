@@ -1,7 +1,7 @@
 "use client";
 import { GlobalContext } from "@/context";
 import { useRouter } from "next/navigation";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import flag from "../assets/maps/flag.jpg";
 
@@ -14,6 +14,23 @@ const Navbar = () => {
     setAlertCameraData,
   } = useContext(GlobalContext);
   const router = useRouter();
+
+  const handleKeyDown = (event) => {
+    if (event.key === "a" || event.key === "A") {
+      setAlertCameraData(data[7]);
+    }
+  };
+
+  useEffect(() => {
+    // Attach event listener for the 'keydown' event
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return isAuthUser === true || isAuthUser === false ? (
     <div className={`${alertCameraData ? "bg-[#E83215]" : "bg-[#2f3b61]"} p-1`}>
       <div className="flex flex-row justify-between">
@@ -30,7 +47,7 @@ const Navbar = () => {
         </div>
         {alertCameraData && (
           <div className="font-bold pl-[0.35rem] text-xl flex flex-row gap-1 w-fit items-center justify-start">
-            <div>Alert!!!</div>
+            <div>Alert!</div>
             <div>Threat found at Zone {alertCameraData?.id}</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
