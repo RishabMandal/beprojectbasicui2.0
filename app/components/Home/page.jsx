@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { GlobalContext } from "@/context";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Modal } from "@mui/material";
+import { Dialog, Modal } from "@mui/material";
 
 const page = () => {
   const { data, setCurrentCameraData, alertCameraData, setAlertCameraData } =
@@ -62,14 +62,15 @@ const page = () => {
 
   return (
     <div className="bg-[#1d2440] min-h-screen h-full text-white">
-      {/* <Modal
+      <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className="outline-none"
+        sx={{ outline: "none" }}
       >
-        <div className="w-[50vw] h-[50vh] top-5 mx-auto bg-opacity-10 flex flex-col items-center justify-center">
+        {/* <div className="w-[50vw] h-[50vh] top-5 mx-auto bg-opacity-10 flex flex-col items-center justify-center">
           <div className="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,8 +105,93 @@ const page = () => {
               Alert Border Patrol
             </button>
           </div>
+        </div> */}
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 text-white">
+          <div className="bg-[#2b4075] border-2 rounded-xl border-blue-600 flex flex-row gap-5 justify-between w-[60vw] mx-auto p-5">
+            <div>
+              <div className="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-16 stroke-red-600 mx-auto"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                  />
+                </svg>
+              </div>
+              <div className="font-semibold text-2xl">
+                Suspicious Activity Detected!
+              </div>
+              <div>
+                Suspicious activity was detected in Zone{" "}
+                {alertCameraData ? alertCameraData.id : "8"}, Block A
+              </div>
+              <button
+                type="submit"
+                onClick={() => {
+                  setCurrentCameraData(data[0]);
+                  router.push("/components/DetailedVideoSection");
+                }}
+                className="flex mb-2 mt-4 h-14 justify-center text-emerald-600 gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-2xl group"
+              >
+                View Camera
+                <svg
+                  className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                  viewBox="0 0 16 19"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                    className="fill-gray-800 group-hover:fill-gray-800"
+                  />
+                </svg>
+              </button>
+              <button
+                className="bg-white my-2 mx-auto block text-center w-48 rounded-2xl h-14 relative text-black text-lg font-semibold group"
+                type="button"
+                onClick={handleClose}
+              >
+                <div className="bg-red-600 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1024 1024"
+                    height="25px"
+                    width="25px"
+                  >
+                    <path
+                      d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                      fill="#000000"
+                    />
+                    <path
+                      d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                      fill="#000000"
+                    />
+                  </svg>
+                </div>
+                <p className="translate-x-2">Go Back</p>
+              </button>
+              {/* <button className="border-2 border-red-600 bg-red-500 py-2 px-3 block rounded-xl font-semibold shadow-xl">
+                View Camera
+              </button>
+              <button className="border-2 border-red-600 bg-red-500 py-2 px-3 block rounded-xl font-semibold shadow-xl">
+                Cancel alert
+              </button> */}
+            </div>
+            <video
+              autoPlay
+              loop
+              className="border-2 w-[30vw] h-fit my-auto border-blue-600 bg-black duration-200 rounded-lg object-contain"
+              src={alertCameraData?.thermalImageAnnotated}
+            />
+          </div>
         </div>
-      </Modal> */}
+      </Dialog>
       <div className="flex h-full">
         <div
           ref={leftDivRef}
