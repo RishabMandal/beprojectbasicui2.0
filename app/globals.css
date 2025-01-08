@@ -16,6 +16,29 @@
   }
 }
 
+@keyframes wave {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.waving-image {
+  animation: wave 1s ease-in-out infinite;
+}
+
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

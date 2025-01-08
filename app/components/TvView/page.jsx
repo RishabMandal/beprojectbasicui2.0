@@ -19,6 +19,53 @@ const page = () => {
       <div
         className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
       >
+        {alertCameraData && (
+          <div className="relative min-w-[20vw] flex-1 h-fit">
+            {alertCameraData.video === false ? (
+              <Image
+                src={
+                  CameraView === "Thermal"
+                    ? alertCameraData.thermalImage
+                    : CameraView === "Normal"
+                    ? alertCameraData.normalImage
+                    : CameraView === "Night"
+                    ? alertCameraData.nightImage
+                    : null
+                }
+                alt="Camera Img"
+                onClick={() => {
+                  setCurrentCameraData(alertCameraData);
+                  router.push("/components/DetailedVideoSection");
+                }}
+                className="relative w-full h-auto border-2 border-red-600 bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+              />
+            ) : (
+              <video
+                // controls
+                loop
+                autoPlay
+                src={
+                  CameraView === "Thermal"
+                    ? alertCameraData.thermalImageAnnotated
+                    : CameraView === "Normal"
+                    ? alertCameraData.normalImage
+                    : CameraView === "Night"
+                    ? alertCameraData.nightImageAnnotated
+                    : null
+                }
+                alt="Camera Img"
+                onClick={() => {
+                  setCurrentCameraData(alertCameraData);
+                  router.push("/components/DetailedVideoSection");
+                }}
+                className="relative w-full h-auto border-2 border-red-600 bg-black duration-200 rounded-lg object-contain cursor-pointer hover:scale-105"
+              />
+            )}
+            <div className="absolute z-30 font-semibold top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
+              Zone {alertCameraData.id}
+            </div>
+          </div>
+        )}
         {data.slice(4, 9).map((item, index) => (
           <div key={index} className="relative min-w-[25vw] flex-1 h-fit">
             {item.video === false ? (

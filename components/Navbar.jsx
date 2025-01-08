@@ -38,7 +38,7 @@ const Navbar = () => {
           <Image
             src={flag}
             alt="flag"
-            className="h-[1rem] object-contain w-fit pr-2"
+            className="h-[1rem] object-contain w-fit pr-2 waving-image"
           />
           {/* {currentCameraData && currentCameraData.id != undefined
             ? `Camera ${currentCameraData.id}`
