@@ -116,7 +116,7 @@ const page = () => {
         <div className="h-auto flex-1 min-w-[20vw] flex justify-center items-center bg-black rounded-lg">
           <div
             // onClick={() => setAlertCameraData(data[0])}
-            className="text-center text-7xl cursor-pointer hover:scale-125 duration-200"
+            className="text-center text-7xl cursor-pointer hover:scale-125 duration-200 pb-2"
           >
             +
           </div>
