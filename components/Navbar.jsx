@@ -43,7 +43,9 @@ const Navbar = () => {
           {/* {currentCameraData && currentCameraData.id != undefined
             ? `Camera ${currentCameraData.id}`
             : "Border Surveillance System"} */}
-          <div>Border Surveillance System</div>
+          <div onClick={() => router.push("/components/Home")} className="cursor-pointer">
+            Border Surveillance System
+          </div>
         </div>
         {alertCameraData && (
           <div className="font-bold pl-[0.35rem] text-xl flex flex-row gap-1 w-fit items-center justify-start">
