@@ -83,7 +83,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 className={`size-7 cursor-pointer mx-1 ${
                   !alertCameraData && "stroke-[#2ea1f1]"
-                } py-1 px-1`}
+                } py-1 px-1 hover:scale-125 duration-200`}
                 onClick={() => router.push("/components/Home")}
               >
                 <path
@@ -100,7 +100,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 className={`size-7 cursor-pointer mx-1 ${
                   !alertCameraData && "stroke-[#2ea1f1]"
-                } py-1 px-1`}
+                } py-1 px-1 hover:scale-125 duration-200`}
                 onClick={() => router.push("/components/TvView")}
               >
                 <path
@@ -131,7 +131,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 className={`size-7 cursor-pointer mx-1 ${
                   !alertCameraData && "stroke-[#2ea1f1]"
-                } py-1 px-1`}
+                } py-1 px-1 hover:scale-125 duration-200`}
                 onClick={() =>
                   alertCameraData
                     ? setAlertCameraData()
@@ -152,7 +152,7 @@ const Navbar = () => {
                 stroke="currentColor"
                 className={`size-7 cursor-pointer mx-1 ${
                   !alertCameraData && "stroke-[#2ea1f1]"
-                } py-1 px-1`}
+                } py-1 px-1 hover:scale-125 duration-200`}
               >
                 <path
                   strokeLinecap="round"
