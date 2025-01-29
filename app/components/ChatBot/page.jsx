@@ -14,20 +14,7 @@ const page = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000", {
-        question: question, // Send the question as input
-      });
-      setAnswer(res.data.answer); // Set the received answer
-    } catch (error) {
-      console.error("Error making API request", error);
-    }
-  };
-
-  const handleSubmit2 = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.post("https://7fea-2405-201-6-ecad-28c5-53c9-4422-ece2.ngrok-free.app", {
+      const res = await axios.post("http://localhost:8000/chat", {
         question: question, // Send the question as input
       });
       setAnswer(res.data.answer); // Set the received answer
@@ -37,7 +24,7 @@ const page = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen p-5">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -45,16 +32,17 @@ const page = () => {
           value={question}
           onChange={handleChange}
           placeholder="Ask a question"
-          className="text-black p-3 m-3"
+          className="text-black p-3 m-3 ml-0 rounded-xl"
         />
-        <button className="border p-3 rounded-xl hover:scale-105" type="submit">
-          Submit 1
-        </button>
-        <button onClick={handleSubmit2} className="border p-3 rounded-xl hover:scale-105">
-          Submit 2
+        <button
+          className="border p-3 rounded-xl hover:scale-105 font-semibold"
+          type="submit"
+        >
+          Submit
         </button>
       </form>
-      {answer && <p>Answer: {answer}</p>} {/* Display the answer */}
+      <div>Answer:</div>
+      {answer && <p>{answer}</p>}
     </div>
   );
 };
