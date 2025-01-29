@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import "./style.css";
 
@@ -7,6 +7,8 @@ const page = () => {
   const [question, setQuestion] = useState(""); // State for the question input
   const [answer, setAnswer] = useState(null); // State for the answer
   const [processing, setProcessing] = useState(false); // State for the answer
+
+  const bottomRef = useRef(null);
 
   const [displayQuestion, setDisplayQuestion] = useState([
     { ques: "Show me current border report", ans: "Ok, will do later" },
@@ -45,7 +47,7 @@ const page = () => {
     setProcessing(true);
     try {
       const res = await axios.post(
-        "https://slow-emus-read.loca.lt/chat",
+        "https://b1a2-2405-201-6-ecad-28c5-53c9-4422-ece2.ngrok-free.app/chat",
         {
           question: question, // Send the question as input
         },
@@ -57,6 +59,13 @@ const page = () => {
         ...prev,
         { ques: question, ans: res.data.answer },
       ]);
+
+      //
+      if (bottomRef.current) {
+        setTimeout(() => {
+          bottomRef.current.scrollIntoView({ behavior: "smooth" });
+        }, 1000);
+      }
     } catch (error) {
       console.error("Error making API request", error);
     } finally {
@@ -156,7 +165,7 @@ const page = () => {
             placeholder="Ask a question"
             className="text-black p-3 m-3 ml-0 rounded-full w-full outline-none"
           />
-          <button
+          {/* <button
             className="border p-3 rounded-full hover:scale-105 duration-200 font-semibold bg-blue-600"
             type="submit"
           >
@@ -196,16 +205,52 @@ const page = () => {
                 />
               </svg>
             )}
-          </button>
+          </button> */}
           <button
+            className="border p-3 rounded-full hover:scale-105 duration-200 font-semibold bg-blue-600"
+            // type="submit"
             onClick={handleSubmit2}
-            className="border p-3 rounded-xl hover:scale-105 font-semibold"
-            //   type="submit"
           >
-            Submit 2
+            {!processing ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 0 1 9 14.437V9.564Z"
+                />
+              </svg>
+            )}
           </button>
         </form>
       </div>
+      <div ref={bottomRef}></div>
     </div>
   );
 };
