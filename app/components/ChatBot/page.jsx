@@ -42,15 +42,25 @@ const page = () => {
 
   const handleSubmit2 = async (e) => {
     e.preventDefault();
-
+    setProcessing(true);
     try {
-      const res = await axios.post("https://huge-trees-press.loca.lt/chat", {
-        question: question, // Send the question as input
-      });
+      const res = await axios.post(
+        "https://slow-emus-read.loca.lt/chat",
+        {
+          question: question, // Send the question as input
+        },
+        { headers: { "Content-Type": "application/json" } }
+      );
       console.log(res.data.answer);
       setAnswer(res.data.answer); // Set the received answer
+      setDisplayQuestion((prev) => [
+        ...prev,
+        { ques: question, ans: res.data.answer },
+      ]);
     } catch (error) {
       console.error("Error making API request", error);
+    } finally {
+      setProcessing(false);
     }
   };
 
@@ -187,13 +197,13 @@ const page = () => {
               </svg>
             )}
           </button>
-          {/* <button
-          onClick={handleSubmit2}
-          className="border p-3 rounded-xl hover:scale-105 font-semibold"
-          //   type="submit"
-        >
-          Submit 2
-        </button> */}
+          <button
+            onClick={handleSubmit2}
+            className="border p-3 rounded-xl hover:scale-105 font-semibold"
+            //   type="submit"
+          >
+            Submit 2
+          </button>
         </form>
       </div>
     </div>
