@@ -9,7 +9,10 @@ const page = () => {
 
   const [displayQuestion, setDisplayQuestion] = useState([
     { ques: "Show me current border report", ans: "Ok, will do later" },
-    { ques: "q2", ans: "Ok" },
+    {
+      ques: "Give me border report",
+      ans: "**Border Surveillance Activity Report** **Date:** October 15, 2023 **Time:** 10:45 AM **Location:** Pakka Kalwa Sector, India-Pakistan Border --- **Incident Summary:** At approximately **10:45 AM**, a suspicious drone was detected flying at a low altitude near the Pakka Kalwa Sector along the India-Pakistan border. The drone's make and model were identified as a DJI Mavic 2, operating in a restricted zone without prior authorization. **Details of the Drone:** - **Make/Model:** DJI Mavic 2 - **Temperature:** 28°C ( slight warmth during operational hours) - **Weather Conditions:** Clear skies with patchy cloud cover **Risk Level Assessment:** Based on previous activity in the area, including an attempted crossing at 9:30 AM, the risk level has been assessed as **Moderate**. The drone's presence raises concerns about potential surveillance or reconnaissance activities. **Previous Activity:** Earlier today, a suspected illegal crossing was detected near the same sector. Surveillance footage confirmed the unauthorized entry attempt but did not result in successful movement into Indian territory. **Actions Taken:** - **Operators:** Surveillance Team 5 - **Drone Status:** The drone was observed moving northwestward at approximately 150 feet altitude before losing contact with its signal. --- **Conclusion:** The detection of a DJI Mavic 2 drone in a sensitive border area necessitates heightened vigilance. While no immediate threats were identified, the drone's presence underscores the need for constant monitoring to prevent unauthorized access and ensure national security. **Report Approved By:** [Name] Surveillance Team Leader --- This report provides a realistic account of a border surveillance incident, incorporating random but plausible details to maintain authenticity.",
+    },
   ]);
 
   const handleChange = (e) => {
@@ -18,6 +21,7 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setProcessing(true);
     try {
       const res = await axios.post("http://localhost:8000/chat", {
         question: question, // Send the question as input
@@ -61,11 +65,11 @@ const page = () => {
           {displayQuestion?.map((chat) => {
             return (
               <div>
-                <div className="border rounded-full py-2 px-3 bg-green-600 my-1 w-fit ml-auto">
+                <div className="border rounded-xl py-2 px-3 bg-green-600 my-1 w-fit ml-auto">
                   {chat?.ques}
                 </div>
                 <div>
-                  <div className="border rounded-full py-2 px-3 bg-blue-600 my-1 w-fit">
+                  <div className="border rounded-xl py-2 px-3 bg-blue-600 my-1 w-fit">
                     {chat?.ans}
                   </div>
                   <div className="flex flex-row gap-2 mt-1 items-center">
