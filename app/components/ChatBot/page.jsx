@@ -17,6 +17,7 @@ const page = () => {
       const res = await axios.post("http://localhost:8000/chat", {
         question: question, // Send the question as input
       });
+      console.log(res.data.answer);
       setAnswer(res.data.answer); // Set the received answer
     } catch (error) {
       console.error("Error making API request", error);
