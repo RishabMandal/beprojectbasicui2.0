@@ -136,7 +136,7 @@ const page = () => {
             className="border p-3 rounded-full hover:scale-105 duration-200 font-semibold bg-blue-600"
             type="submit"
           >
-            {processing ? (
+            {!processing ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
