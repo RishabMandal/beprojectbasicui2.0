@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import "./style.css";
 
 const page = () => {
   const [question, setQuestion] = useState(""); // State for the question input
@@ -11,7 +12,7 @@ const page = () => {
     { ques: "Show me current border report", ans: "Ok, will do later" },
     {
       ques: "Give me border report",
-      ans: "**Border Surveillance Activity Report** **Date:** October 15, 2023 **Time:** 10:45 AM **Location:** Pakka Kalwa Sector, India-Pakistan Border --- **Incident Summary:** At approximately **10:45 AM**, a suspicious drone was detected flying at a low altitude near the Pakka Kalwa Sector along the India-Pakistan border. The drone's make and model were identified as a DJI Mavic 2, operating in a restricted zone without prior authorization. **Details of the Drone:** - **Make/Model:** DJI Mavic 2 - **Temperature:** 28°C ( slight warmth during operational hours) - **Weather Conditions:** Clear skies with patchy cloud cover **Risk Level Assessment:** Based on previous activity in the area, including an attempted crossing at 9:30 AM, the risk level has been assessed as **Moderate**. The drone's presence raises concerns about potential surveillance or reconnaissance activities. **Previous Activity:** Earlier today, a suspected illegal crossing was detected near the same sector. Surveillance footage confirmed the unauthorized entry attempt but did not result in successful movement into Indian territory. **Actions Taken:** - **Operators:** Surveillance Team 5 - **Drone Status:** The drone was observed moving northwestward at approximately 150 feet altitude before losing contact with its signal. --- **Conclusion:** The detection of a DJI Mavic 2 drone in a sensitive border area necessitates heightened vigilance. While no immediate threats were identified, the drone's presence underscores the need for constant monitoring to prevent unauthorized access and ensure national security. **Report Approved By:** [Name] Surveillance Team Leader --- This report provides a realistic account of a border surveillance incident, incorporating random but plausible details to maintain authenticity.",
+      ans: "Report ID : 2023-DRN-046 Date : November 20th, 2023 Time of Detection : 9:15 PM IST Drone Model : Predator XP Temperature : 18°C (64°F) Wind Speed : 10 km/h Weather Conditions : Overcast skies with light rain Risk Level : Medium Location : Brahmaputra River, Assam, India near the Bhutan border Previous Activity : Increased thermal signatures detected over the past week The surveillance team recorded an unidentified object near the Brahmaputra River at 9:15 PM IST. The drone identified as a Predator XP operated by an unknown entity was detected at an altitude of 500 meters. Temperature readings were 18°C (64°F) with light winds and intermittent rain, providing optimal conditions for detection. Risk level is assessed as Medium due to the potential threat of unauthorized surveillance. Previous activity included a spike in thermal signatures suggesting movement, first noted three days prior. Further investigation is recommended to identify the purpose of this activity.",
     },
   ]);
 
@@ -65,7 +66,7 @@ const page = () => {
           {displayQuestion?.map((chat) => {
             return (
               <div>
-                <div className="border rounded-xl py-2 px-3 bg-green-600 my-1 w-fit ml-auto">
+                <div className="border rounded-xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
                   {chat?.ques}
                 </div>
                 <div>
@@ -121,6 +122,15 @@ const page = () => {
               </div>
             );
           })}
+          {processing && (
+            <div className="dots-container w-fit my-5">
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+            </div>
+          )}
         </div>
       </div>
       <div className="w-full fixed bottom-0 bg-[#2c4075] -mx-5 px-5">
@@ -167,7 +177,12 @@ const page = () => {
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                  d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 0 1 9 14.437V9.564Z"
                 />
               </svg>
             )}
