@@ -78,6 +78,9 @@ const page = () => {
       if (bottomRef.current) {
         setTimeout(() => {
           bottomRef.current.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+        setTimeout(() => {
+          bottomRef.current.scrollIntoView({ behavior: "smooth" });
         }, 1000);
       }
     } catch (error) {
@@ -122,11 +125,11 @@ const page = () => {
 
             return (
               <div key={chat.id}>
-                <div className="border rounded-xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
+                <div className="border rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
                   {chat?.ques}
                 </div>
                 <div>
-                  <div className="border rounded-xl py-2 px-3 bg-blue-600 my-1 w-fit">
+                  <div className="border rounded-xl shadow-2xl py-2 px-3 bg-blue-600 my-1 w-fit">
                     {chat?.ans}
                   </div>
                   <div className="flex flex-row gap-2 mt-1 items-center">
@@ -156,12 +159,17 @@ const page = () => {
             );
           })}
           {processing && (
-            <div className="dots-container w-fit my-5">
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
+            <div>
+              <div className="border rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
+                {question}
+              </div>
+              <div className="dots-container w-fit my-5">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+              </div>
             </div>
           )}
         </div>
