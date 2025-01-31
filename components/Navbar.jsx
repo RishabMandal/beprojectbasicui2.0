@@ -45,7 +45,7 @@ const Navbar = () => {
             : "Border Surveillance System"} */}
           <div
             onClick={() => router.push("/components/Home")}
-            className="cursor-pointer"
+            className="cursor-pointer inter-uniqueText font-bold"
           >
             Border Surveillance System
           </div>

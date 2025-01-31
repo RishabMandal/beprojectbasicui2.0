@@ -38,6 +38,13 @@
   animation: wave 1s ease-in-out infinite;
 }
 
+/* In your global stylesheet (e.g., styles/globals.css) */
+.inter-uniqueText {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 800; /* Set to desired weight */
+  font-style: normal;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
