@@ -52,6 +52,9 @@ const page = () => {
   const handleSubmit2 = async (e) => {
     e.preventDefault();
     setProcessing(true);
+    setTimeout(() => {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 100);
     try {
       const res = await axios.post(
         "https://0160-2405-201-6-ecad-f0d4-294e-5d26-9b42.ngrok-free.app/chat",
@@ -265,7 +268,7 @@ const page = () => {
               <div className="border rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
                 {question}
               </div>
-              <div className="dots-container w-fit my-5">
+              <div className="dots-container w-fit mx-5 mt-5 mb-20">
                 <div className="dot"></div>
                 <div className="dot"></div>
                 <div className="dot"></div>
