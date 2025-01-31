@@ -127,7 +127,10 @@ const page = () => {
           <div className="absolute bg-[#25314f] border rounded-xl shadow-md mt-2 w-56 z-10 p-3">
             <ul>
               <li
-                onClick={() => setModelSelectOption("SeekDeep v1")}
+                onClick={() => {
+                  setModelSelectOption("SeekDeep v1");
+                  togglePopover();
+                }}
                 className="py-2 rounded-xl px-4 flex flex-row justify-between gap-3 items-center hover:bg-blue-600 cursor-pointer"
               >
                 <p>SeekDeep v1</p>
@@ -147,7 +150,10 @@ const page = () => {
                 </svg>
               </li>
               <li
-                onClick={() => setModelSelectOption("SeekDeep Pro")}
+                onClick={() => {
+                  setModelSelectOption("SeekDeep Pro");
+                  togglePopover();
+                }}
                 className="py-2 rounded-xl px-4 flex flex-row justify-between gap-3 items-center hover:bg-blue-600 cursor-pointer"
               >
                 <p>SeekDeep Pro</p>
