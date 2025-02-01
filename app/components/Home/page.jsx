@@ -313,7 +313,7 @@ const page = () => {
               </div>
             </div>
           )}
-          {data.slice(5, 11).map((item, index) => (
+          {data.slice(5, 13).map((item, index) => (
             <div key={index} className="relative min-w-[20vw] flex-1 h-fit">
               {item.video === false ? (
                 <Image

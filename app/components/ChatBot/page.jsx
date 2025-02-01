@@ -8,6 +8,7 @@ const page = () => {
   const [answer, setAnswer] = useState(null); // State for the answer
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(false);
+  const inputRef = useRef(null);
 
   const bottomRef = useRef(null);
 
@@ -66,7 +67,7 @@ const page = () => {
       );
       // console.log(res.data.answer);
       console.log(res.data);
-
+      setError(false);
       setAnswer(res.data.answer); // Set the received answer
       setDisplayQuestion((prev) => [
         ...prev,
@@ -77,6 +78,7 @@ const page = () => {
           rating: 0,
         },
       ]);
+      setQuestion("");
 
       //
       if (bottomRef.current) {
@@ -277,7 +279,8 @@ const page = () => {
           )}
           {error && (
             <div className="border rounded-xl shadow-2xl py-2 px-3 bg-red-600 my-3 w-fit">
-              Something went wrong on our end. Please try again, and if the issue persists, contact our support team.
+              Something went wrong on our end. Please try again, and if the
+              issue persists, contact our support team.
             </div>
           )}
         </div>
@@ -291,6 +294,7 @@ const page = () => {
             type="text"
             name="question"
             value={question}
+            ref={inputRef}
             onChange={handleChange}
             placeholder="Ask a question"
             className="text-black p-3 m-3 ml-0 rounded-full w-full outline-none"
