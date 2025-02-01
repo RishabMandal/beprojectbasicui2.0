@@ -66,7 +66,7 @@ const page = () => {
             </div>
           </div>
         )}
-        {data.slice(4, 9).map((item, index) => (
+        {data.slice(5, 11).map((item, index) => (
           <div key={index} className="relative min-w-[25vw] flex-1 h-fit">
             {item.video === false ? (
               <Image

@@ -6,7 +6,8 @@ import "./style.css";
 const page = () => {
   const [question, setQuestion] = useState(""); // State for the question input
   const [answer, setAnswer] = useState(null); // State for the answer
-  const [processing, setProcessing] = useState(false); // State for the answer
+  const [processing, setProcessing] = useState(false);
+  const [error, setError] = useState(false);
 
   const bottomRef = useRef(null);
 
@@ -88,6 +89,7 @@ const page = () => {
       }
     } catch (error) {
       console.error("Error making API request", error);
+      setError(true);
     } finally {
       setProcessing(false);
     }
@@ -200,10 +202,6 @@ const page = () => {
         )}
       </div>
       <div className="flex flex-row gap-5">
-        {/* <div className="border flex-1 min-h-[70vh]">
-          answ
-          {answer && <p>{answer}</p>}
-        </div> */}
         <div className="flex-1 min-h-[70vh] flex flex-col">
           {displayQuestion?.map((chat) => {
             const handleRating = async (ratingValue, id) => {
@@ -277,11 +275,16 @@ const page = () => {
               </div>
             </div>
           )}
+          {error && (
+            <div className="border rounded-xl shadow-2xl py-2 px-3 bg-red-600 my-3 w-fit">
+              Something went wrong on our end. Please try again, and if the issue persists, contact our support team.
+            </div>
+          )}
         </div>
       </div>
       <div className="w-full fixed bottom-0 bg-[#2c4075] -mx-5 px-5">
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit2}
           className="w-full flex flex-row items-center"
         >
           <input
@@ -296,42 +299,6 @@ const page = () => {
             className="border p-3 rounded-full hover:scale-105 duration-200 font-semibold bg-blue-600"
             type="submit"
           >
-            {!processing ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 0 1 9 14.437V9.564Z"
-                />
-              </svg>
-            )}
           </button> */}
           <button
             className="border p-3 rounded-full hover:scale-105 duration-200 font-semibold bg-blue-600"
