@@ -34,6 +34,9 @@ const page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
+    setTimeout(() => {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 100);
     try {
       const res = await axios.post("http://localhost:8000/chat", {
         question: question, // Send the question as input

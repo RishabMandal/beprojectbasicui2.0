@@ -16,7 +16,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleKeyDown = (event) => {
-    if (event.key === "a" || event.key === "A") {
+    if (event.key === "A") {
       setAlertCameraData(data[7]);
     }
   };

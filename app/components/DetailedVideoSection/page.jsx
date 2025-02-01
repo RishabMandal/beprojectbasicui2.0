@@ -11,14 +11,14 @@ const page = () => {
   const [mapView, setMapView] = useState(true);
   return (
     <div className="bg-[#2f3b61]">
-      <div className="flex flex-row">
-        <div className="w-[70vw] min-h-[95vh]">
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-[70vw] min-h-[95vh]">
           <VideoPlayer
             currentCameraData={currentCameraData}
             setCurrentCameraData={setCurrentCameraData}
           />
         </div>
-        <div className="w-[30vw] flex flex-col min-h-[95vh]">
+        <div className="md:w-[30vw] flex flex-col min-h-[95vh]">
           <div className="flex-1">
             <ActivityDetectorComponent
               mapView={mapView}

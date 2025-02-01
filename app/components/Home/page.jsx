@@ -159,8 +159,8 @@ const page = () => {
       <div className="flex h-full">
         <div
           ref={leftDivRef}
-          style={{ minWidth: "100px", width: "33.33%" }} // Prevents the div from being too small
-          className="bg-[#25314f]"
+          style={{ minWidth: "100px" }} // Prevents the div from being too small
+          className="bg-[#25314f] md:w-[33.33%]"
         >
           <div className="flex-1 bg-[#25314f] p-2 overflow-x-auto resize-x">
             <select
@@ -259,12 +259,12 @@ const page = () => {
         </div>
         <div
           ref={dividerRef}
-          className="bg-[#334c8e] cursor-col-resize w-1 h-full min-h-[350vh]"
+          className="bg-[#334c8e] cursor-col-resize w-1 h-full min-h-[350vh] hidden md:block"
           onMouseDown={handleMouseDown}
         ></div>
         <div
           ref={rightDivRef}
-          className={`flex-1 flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
+          className={`flex-1 hidden md:flex flex-wrap justify-start items-start p-5 gap-5 h-fit`}
         >
           {alertCameraData && (
             <div className="relative min-w-[20vw] flex-1 h-fit">
