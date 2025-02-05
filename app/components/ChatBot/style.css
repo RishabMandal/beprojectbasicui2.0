@@ -39,8 +39,8 @@
   font-size: 17px;
   position: relative;
   display: inline-block;
-  width: 3.5em;
-  height: 2em;
+  width: 3.1em;
+  height: 1.5em;
 }
 
 /* Hide default HTML checkbox */
@@ -60,17 +60,17 @@
   bottom: 0;
   background-color: rgb(182, 182, 182);
   transition: 0.4s;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 1.4em;
-  width: 1.4em;
-  border-radius: 8px;
+  height: 1.0em;
+  width: 1.0em;
+  border-radius: 4px;
   left: 0.3em;
-  bottom: 0.3em;
+  bottom: 0.23em;
   transform: rotate(270deg);
   background-color: rgb(255, 255, 255);
   transition: 0.4s;
