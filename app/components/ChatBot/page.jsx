@@ -257,11 +257,11 @@ const page = () => {
 
             return (
               <div key={chat.id}>
-                <div className="border rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
+                <div className="border md:max-w-[50vw] rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
                   {chat?.ques}
                 </div>
                 <div>
-                  <div className="border rounded-xl shadow-2xl py-2 px-3 bg-blue-600 my-1 w-fit">
+                  <div className="border md:max-w-[50vw] rounded-xl shadow-2xl py-2 px-3 bg-blue-600 my-1 w-fit">
                     {chat?.ans}
                   </div>
                   <div className="flex flex-row gap-2 mt-1 items-center">
