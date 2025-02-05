@@ -19,12 +19,12 @@ const page = () => {
       ques: "Hi",
       ans: "Hi, I am SeekDeep, a large language model fine-tuned by a bunch of enthusiasts to streamline automatic surveillance and assist with various tasks related to security and monitoring.",
       rating: 0,
-      id: 691,
+      id: 95,
     },
     {
       ques: "Give me border report",
       rating: 0,
-      id: 692,
+      id: 25,
       ans: "Report ID : 2023-DRN-046 Date : November 20th, 2023 Time of Detection : 9:15 PM IST Drone Model : Predator XP Temperature : 18°C (64°F) Wind Speed : 10 km/h Weather Conditions : Overcast skies with light rain Risk Level : Medium Location : Brahmaputra River, Assam, India near the Bhutan border Previous Activity : Increased thermal signatures detected over the past week The surveillance team recorded an unidentified object near the Brahmaputra River at 9:15 PM IST. The drone identified as a Predator XP operated by an unknown entity was detected at an altitude of 500 meters. Temperature readings were 18°C (64°F) with light winds and intermittent rain, providing optimal conditions for detection. Risk level is assessed as Medium due to the potential threat of unauthorized surveillance. Previous activity included a spike in thermal signatures suggesting movement, first noted three days prior. Further investigation is recommended to identify the purpose of this activity.",
     },
   ]);
@@ -217,7 +217,25 @@ const page = () => {
           // onClick={() => setGuardrail(guardrail === 0 ? 1 : 0)}
           className="flex flex-row items-center gap-3"
         >
-          GuardRail
+          <button
+            onClick={() => window.print()}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15"
+              />
+            </svg>
+          </button>
+          <div>GuardRail</div>
           <div className="switch">
             <label className="switch">
               <input
@@ -257,11 +275,11 @@ const page = () => {
 
             return (
               <div key={chat.id}>
-                <div className="border md:max-w-[50vw] rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
+                <div className="border rounded-xl shadow-2xl py-2 px-3 bg-green-600 my-3 w-fit ml-auto">
                   {chat?.ques}
                 </div>
                 <div>
-                  <div className="border md:max-w-[50vw] rounded-xl shadow-2xl py-2 px-3 bg-blue-600 my-1 w-fit">
+                  <div className="border rounded-xl shadow-2xl py-2 px-3 bg-blue-600 my-1 w-fit">
                     {chat?.ans}
                   </div>
                   <div className="flex flex-row gap-2 mt-1 items-center">
@@ -270,7 +288,20 @@ const page = () => {
                       <svg
                         key={star}
                         xmlns="http://www.w3.org/2000/svg"
-                        fill={star <= chat?.rating ? "yellow" : "none"}
+                        // fill={star <= chat?.rating ? "yellow" : "none"}
+                        fill={
+                          chat?.rating === 1 && star <= chat?.rating
+                            ? "red"
+                            : chat?.rating === 2 && star <= chat?.rating
+                            ? "orange"
+                            : chat?.rating === 3 && star <= chat?.rating
+                            ? "yellow"
+                            : chat?.rating === 4 && star <= chat?.rating
+                            ? "green"
+                            : chat?.rating === 5
+                            ? "green"
+                            : "none"
+                        }
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
