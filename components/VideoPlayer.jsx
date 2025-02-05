@@ -220,38 +220,38 @@ const VideoPlayer = ({ currentCameraData, setCurrentCameraData }) => {
           />
         </svg>
 
-        <div
+        <button
           className={`cursor-pointer ${
             CameraView === "Normal" && "bg-[#2b4075]"
           } border border-[#48599a] p-1 ml-3 hover:scale-105 duration-200 px-3 rounded-lg`}
           onClick={() => setCameraView("Normal")}
         >
           Normal Vision
-        </div>
-        <div
+        </button>
+        <button
           className={`cursor-pointer ${
             CameraView === "Thermal" && "bg-[#2b4075]"
           } border border-[#48599a] p-1 hover:scale-105 duration-200 px-3 rounded-lg`}
           onClick={() => setCameraView("Thermal")}
         >
           Thermal Vision
-        </div>
-        <div
+        </button>
+        <button
           className={`cursor-pointer ${
             CameraView === "Night" && "bg-[#2b4075]"
           } border border-[#48599a] p-1 hover:scale-105 duration-200 px-3 rounded-lg`}
           onClick={() => setCameraView("Night")}
         >
           Night Vision
-        </div>
-        <div
+        </button>
+        <button
           className={`cursor-pointer ${
             ActivateModel === true && "bg-[#2b4075]"
           } border border-[#48599a] p-1 hover:scale-105 duration-200 px-3 rounded-lg`}
           onClick={() => setActivateModel(!ActivateModel)}
         >
           Activate Model
-        </div>
+        </button>
       </div>
     </div>
   );

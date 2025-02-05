@@ -112,7 +112,7 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
         </div>
       </div>
       <div className="flex flex-row justify-center items-center cursor-pointer">
-        <div
+        <button
           className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200"
           onClick={() => router.push("/components/ChatBot")}
         >
@@ -149,8 +149,8 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
             className="text-white h-[1.5rem] mx-auto"
           />
           <div className="text-center text-sm pt-1">SeekDeep AI</div>
-        </div>
-        <div className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200">
+        </button>
+        <button className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -166,8 +166,8 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
             />
           </svg>
           <div className="text-center text-sm pt-1">Call authority</div>
-        </div>
-        <div
+        </button>
+        <button
           className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200"
           onClick={() => router.push("/components/GenerateReport")}
         >
@@ -186,8 +186,8 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
             />
           </svg>
           <div className="text-center text-sm pt-1">Generate Report</div>
-        </div>
-        <div
+        </button>
+        <button
           className="border border-[#334c8e] bg-[#2c4075] p-3 hover:scale-110 duration-200"
           onClick={() => setMapView(!mapView)}
         >
@@ -221,7 +221,7 @@ const ActivityDetectorComponent = ({ mapView, setMapView }) => {
           <div className="text-center text-sm pt-1">
             {mapView ? "Radar Mode" : "Map Mode"}
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );
