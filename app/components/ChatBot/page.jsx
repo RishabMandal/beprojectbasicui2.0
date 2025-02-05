@@ -16,8 +16,8 @@ const page = () => {
 
   const [displayQuestion, setDisplayQuestion] = useState([
     {
-      ques: "Show me current border report",
-      ans: "Ok, will do later",
+      ques: "Hi",
+      ans: "Hi, I am SeekDeep, a large language model fine-tuned by a bunch of enthusiasts to streamline automatic surveillance and assist with various tasks related to security and monitoring.",
       rating: 0,
       id: 691,
     },
