@@ -314,7 +314,7 @@ const page = () => {
             </div>
           )}
           {data.slice(5, 13).map((item, index) => (
-            <div key={index} className="relative min-w-[20vw] flex-1 h-fit">
+            <button key={index} className="relative min-w-[20vw] flex-1 h-fit">
               {item.video === false ? (
                 <Image
                   src={
@@ -358,7 +358,7 @@ const page = () => {
               <div className="absolute z-30 font-semibold top-2 left-2 bg-[#2b4075] text-white text-sm p-1 rounded">
                 Zone {item.id}
               </div>
-            </div>
+            </button>
           ))}
           <div className="h-auto flex-1 min-w-[20vw] flex justify-center items-center bg-black rounded-lg">
             <div
