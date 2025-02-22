@@ -9,11 +9,6 @@ const page = () => {
     useContext(GlobalContext);
   const [CameraView, setCameraView] = useState("Thermal");
 
-  // useEffect(() => {
-  //   if (alertCameraData) {
-  //   }
-  // }, [alertCameraData]);
-
   return (
     <div className="bg-[#1d2440] min-h-[95vh]">
       <div

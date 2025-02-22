@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   return isAuthUser === true || isAuthUser === false ? (
-    <div className={`${alertCameraData ? "bg-[#E83215]" : "bg-[#2f3b61]"} p-1`}>
+    <div className={`${alertCameraData ? "bg-[#E83215]" : "bg-[#2f3b61]"} p-1 transition-colors duration-500`}>
       <div className="flex flex-row justify-between">
         <div className="font-bold pl-[0.35rem] text-xl flex flex-row w-fit items-center justify-start">
           <Image
@@ -40,9 +40,6 @@ const Navbar = () => {
             alt="flag"
             className="h-[1rem] object-contain w-fit pr-2 waving-image"
           />
-          {/* {currentCameraData && currentCameraData.id != undefined
-            ? `Camera ${currentCameraData.id}`
-            : "Border Surveillance System"} */}
           <div
             onClick={() => router.push("/components/Home")}
             className="cursor-pointer inter-uniqueText font-bold"
