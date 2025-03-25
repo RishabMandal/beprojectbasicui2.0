@@ -64,7 +64,7 @@ const page = () => {
     }, 100);
     try {
       const res = await axios.post(
-        "https://bc4c-2405-201-6-ecad-5086-9ce8-927-fa94.ngrok-free.app/chat",
+        "https://fe8a-103-207-59-158.ngrok-free.app/chat",
         {
           question: question, // Send the question as input
           guardrail: guardrail,
@@ -72,7 +72,7 @@ const page = () => {
         { headers: { "Content-Type": "application/json" } }
       );
       // console.log(res.data.answer);
-      console.log(res.data);
+      // console.log(res.data);
       setError(false);
       setAnswer(res.data.answer); // Set the received answer
       setDisplayQuestion((prev) => [
@@ -217,10 +217,7 @@ const page = () => {
           // onClick={() => setGuardrail(guardrail === 0 ? 1 : 0)}
           className="flex flex-row items-center gap-3"
         >
-          <button
-            onClick={() => window.print()}
-            className="hover:scale-110"
-          >
+          <button onClick={() => window.print()} className="hover:scale-110">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
